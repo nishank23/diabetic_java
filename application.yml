@@ -6,17 +6,16 @@ spring:
     url: jdbc:postgresql://localhost:${POSTGRES_PORT:5432}/${POSTGRES_DB:mvp_db}
     username: ${POSTGRES_USER:mvp_user}
     password: ${POSTGRES_PASSWORD:mvp_password}
-    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none  # We’ll use Flyway migrations, so don’t let Hibernate auto-create tables
+      ddl-auto: update  # We’ll use Flyway migrations, so don’t let Hibernate auto-create tables
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration  # Where Flyway looks for migration files
     baseline-on-migrate: true
 
