@@ -11,4 +11,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handle(InvalidBgReadingException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<?> handle(ResourceNotFoundException ex) {
+        return ResponseEntity.notFound().build();
+    }
+
+
+
+
 }

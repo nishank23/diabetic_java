@@ -1,0 +1,4 @@
+package com.example.diabetic.service;
+
+public interface InsulinLogService {
+}

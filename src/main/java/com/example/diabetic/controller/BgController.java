@@ -22,15 +22,12 @@ public class BgController {
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
-
     //for bulk syncing apple/gfit data to our app.
     @PostMapping("/bulk")
     public ResponseEntity<List<BgReading>> addBgReadingBulk(@RequestBody List<BgReading> bgReadingList){
         var saved = bgService.addBgReadingList(bgReadingList);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
-
-
 
 
     @DeleteMapping
