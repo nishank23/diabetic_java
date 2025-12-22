@@ -1,4 +1,4 @@
-package com.example.diabetic.model;
+package com.example.diabetic.model.enums;
 
 public enum BgSource{
     GOOGLE_FIT,

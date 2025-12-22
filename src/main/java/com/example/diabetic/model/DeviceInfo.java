@@ -12,11 +12,11 @@ public class DeviceInfo {
     @Id
     private long id;
 
-    private long device_id;
+    private long deviceId;
 
-    private String app_version;
+    private String appVersion;
 
-    private Instant last_synced_at;
+    private Instant lastSyncedAt;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -25,9 +25,9 @@ public class DeviceInfo {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user_id;
+    private Users userId;
 
     //android or ios
-    private String device_type;
+    private String deviceType;
 
 }

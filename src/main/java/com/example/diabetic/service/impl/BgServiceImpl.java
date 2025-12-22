@@ -2,7 +2,7 @@ package com.example.diabetic.service.impl;
 
 import com.example.diabetic.exception.ResourceNotFoundException;
 import com.example.diabetic.model.BgReading;
-import com.example.diabetic.model.BgUnits;
+import com.example.diabetic.model.enums.BgUnits;
 import com.example.diabetic.repository.BgRepository;
 import com.example.diabetic.service.BgService;
 import jakarta.transaction.Transactional;
@@ -47,13 +47,13 @@ public class BgServiceImpl implements BgService {
         if(bg==null)
             throw new IllegalArgumentException("Bg values are empty");
 
-        if (bg.getBg_unit() == null)
+        if (bg.getBgUnit() == null)
             throw new IllegalArgumentException("BG unit is required");
 
-        if (bg.getBg_value() <= 0 || bg.getBg_value() > 1000)
+        if (bg.getBgValue() <= 0 || bg.getBgValue() > 1000)
             throw new IllegalArgumentException("Invalid BG value");
 
-        if (bg.getBg_unit() == BgUnits.MMOL_PER_L && bg.getBg_value() > 40)
+        if (bg.getBgUnit() == BgUnits.MMOL_PER_L && bg.getBgValue() > 40)
             throw new IllegalArgumentException("Invalid mmol/L value");
     }
 

@@ -15,16 +15,16 @@ public class Insulin_Logs {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user_id;
+    private Users userId;
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "insulin_id", nullable = false)
-    private Insulin insulin_id;
+    private Insulin insulinId;
 
-    private Instant taken_at;
+    private Instant takenAt;
 
-    private int unit_taken;
+    private int unitTaken;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)

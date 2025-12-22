@@ -1,4 +1,4 @@
-package com.example.diabetic.model;
+package com.example.diabetic.model.enums;
 
 public enum BgUnits{
     MG_PER_DL,

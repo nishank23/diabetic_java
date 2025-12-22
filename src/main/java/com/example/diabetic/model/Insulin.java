@@ -10,23 +10,23 @@ public class Insulin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "insulin_id")
-    private long insulin_id;
+    private long insulinId;
 
-    private String insulin_type;
+    private String insulinType;
 
-    private String insulin_name;
+    private String insulinName;
 
-    private int daily_freq;
+    private int dailyFreq;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user_id;
+    private Users userId;
 
-    private Instant insulin_time;
+    private Instant insulinTime;
 
-    private int total_units_pack;
+    private int totalUnitsPack;
 
-    private int insulin_unit_cost;
+    private int insulinUnitCost;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)

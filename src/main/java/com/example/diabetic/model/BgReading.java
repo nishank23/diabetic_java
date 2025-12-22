@@ -1,5 +1,7 @@
 package com.example.diabetic.model;
 
+import com.example.diabetic.model.enums.BgSource;
+import com.example.diabetic.model.enums.BgUnits;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import java.time.Instant;
@@ -13,15 +15,15 @@ public class BgReading {
     private long id;
 
     @Column(nullable = false, updatable = false)
-    private Instant reading_time;
+    private Instant readingTime;
 
 
     @Column(nullable = false)
-    private int bg_value;
+    private int bgValue;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private BgUnits bg_unit;
+    private BgUnits bgUnit;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -33,7 +35,7 @@ public class BgReading {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user_id;
+    private Users userId;
 
 
     @CreatedDate
@@ -48,28 +50,28 @@ public class BgReading {
         this.id = id;
     }
 
-    public Instant getReading_time() {
-        return reading_time;
+    public Instant getReadingTime() {
+        return readingTime;
     }
 
-    public void setReading_time(Instant reading_time) {
-        this.reading_time = reading_time;
+    public void setReadingTime(Instant readingTime) {
+        this.readingTime = readingTime;
     }
 
-    public int getBg_value() {
-        return bg_value;
+    public int getBgValue() {
+        return bgValue;
     }
 
-    public void setBg_value(int bg_value) {
-        this.bg_value = bg_value;
+    public void setBgValue(int bgValue) {
+        this.bgValue = bgValue;
     }
 
-    public BgUnits getBg_unit() {
-        return bg_unit;
+    public BgUnits getBgUnit() {
+        return bgUnit;
     }
 
-    public void setBg_unit(BgUnits bg_unit) {
-        this.bg_unit = bg_unit;
+    public void setBgUnit(BgUnits bgUnit) {
+        this.bgUnit = bgUnit;
     }
 
     public BgSource getBgSource() {
@@ -88,12 +90,12 @@ public class BgReading {
         this.sourceId = sourceId;
     }
 
-    public Users getUser_id() {
-        return user_id;
+    public Users getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Users user_id) {
-        this.user_id = user_id;
+    public void setUserId(Users userId) {
+        this.userId = userId;
     }
 
     public Instant getCreatedAt() {
