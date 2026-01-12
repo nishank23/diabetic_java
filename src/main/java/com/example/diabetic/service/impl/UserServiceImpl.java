@@ -2,10 +2,10 @@ package com.example.diabetic.service.impl;
 
 import com.example.diabetic.Utils.Utils;
 import com.example.diabetic.dto.LoginRequest;
-import com.example.diabetic.dto.OtpRequest;
 import com.example.diabetic.dto.OtpSendRequest;
 import com.example.diabetic.dto.RegisterRequest;
 import com.example.diabetic.model.OtpVerification;
+import com.example.diabetic.model.OtpVerifyRequest;
 import com.example.diabetic.model.Users;
 import com.example.diabetic.model.enums.UserType;
 import com.example.diabetic.repository.OtpRepository;
@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public OtpVerification verifyOtp(OtpRequest otpRequest) {
+    public OtpVerification verifyOtp(OtpVerifyRequest otpRequest) {
         if (!userRepository.existsByEmail(otpRequest.email())) {
             throw new IllegalArgumentException("User Doesn't exits");
         }
@@ -74,12 +74,10 @@ public class UserServiceImpl implements UserService {
 
         OtpVerification otpVerification = new OtpVerification();
         otpVerification.setEmail(otpRequest.email());
-
         otpVerification.setExpiresAt(Instant.now().plusSeconds(300));
         String generatedOtp = Utils.generateOtp();
         otpVerification.setOtpHash(passwordEncoder.encode(generatedOtp));
         otpVerification.setUsed(false);
-
 
         otpRepository.save(otpVerification);
         emailService.sendOtpEmail(otpRequest.email(), generatedOtp);

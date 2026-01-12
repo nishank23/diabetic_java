@@ -16,7 +16,7 @@ public class EmailService {
     public void sendOtpEmail(String to,String otp){
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
-        message.setSubject("YOUR OTP VERIFICATION CODE FOR DIABETIES APP");
+        message.setSubject("YOUR OTP VERIFICATION CODE FOR DIABETES APP");
         message.setSubject("YOUR OTP is:  " +otp+"\n it expires in 5 minutes");
 
         mailSender.send(message);
